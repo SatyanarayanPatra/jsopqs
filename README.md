@@ -25,7 +25,7 @@ TDZ is a specific behavior related to variables declared using let and const. It
 During the TDZ, accessing the variable will result in a ReferenceError.
 In fourth example, trying to log a, b, and c before their respective declarations will result in ReferenceError because they are in the TDZ until they are declared.
 
-/--------------------------------------------------------------------------------------------------------------------------------/
+/-------------------------------------------------------------------------------------------------------------------------------/
 
 -   map(), filter(), reduce()
 
