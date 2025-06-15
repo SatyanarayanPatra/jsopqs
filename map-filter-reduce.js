@@ -18,3 +18,12 @@ const sum = nums.reduce((acc, curr) => acc + curr, 0);
 console.log(sum);
 //// Output: 10
 //! Reduce executes a reducer function on each element of the array, resulting in a single output value.
+
+//* 🔁 4. map() returns new array?
+const arr = [1, 2, 3];
+const mapped = arr.map((x) => x * 2);
+console.log(arr);
+console.log(mapped);
+//// Output: [1, 2, 3]
+//// Output: [2, 4, 6]
+//! Map does not modify the original array; it returns a new array with the results of the function applied to each element.
