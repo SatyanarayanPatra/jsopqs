@@ -154,3 +154,59 @@ console.log(y);
 //// Output: 2
 //// Output: 1
 //* Variables declared with let can also be masked by inner scopes, leading to different values being logged depending on the scope
+
+
+//! 20. var in IIFE
+(function() {
+    var a = 100;
+})();
+console.log(a);
+//// Output: ReferenceError: a is not defined
+//* Variables declared with var inside an Immediately Invoked Function Expression (IIFE) are not accessible outside of the IIFE, leading to a ReferenceError if accessed
+
+//! 21. let in IIFE with block scope
+(function() {
+    let b = 200;
+})();
+console.log(b);
+//// ReferenceError: b is not defined
+//* Variables declared with let inside an Immediately Invoked Function Expression (IIFE) are also not accessible outside of the IIFE, leading to a ReferenceError if accessed
+
+//! 22. const in block with mutation
+{
+    const arr = [1, 2, 3];
+    arr.push(4);
+    console.log(arr);
+}
+//// Output: [1, 2, 3, 4]
+//* Variables declared with const can have their properties mutated, but the reference itself cannot be changed, allowing for modifications to the object or array
+
+//! 23. Re-declaring let with var (in different scope)
+let a = 10;
+{
+    var a = 20;
+}
+console.log(a);
+// Output: 10
+//* Variables declared with let can be re-declared with var in a different scope, leading to the outer let variable being unaffected
+
+//! 24. Re-declaring var with let (in different scope)
+var b = 10;
+{
+    let b = 20;
+    console.log(b);
+}
+console.log(b);
+//// Output: 20
+//// Output: 10
+//* Variables declared with var can be re-declared with let in a different scope, leading to the inner let variable being logged when accessed within its block
+
+
+//! 25. Temporal Dead Zone inside if block
+if (true) {
+    console.log(value);
+    let value = 5;
+}
+//// ReferenceError: Cannot access 'value' before initialization
+//* Variables declared with let are not accessible before their declaration, even within the same block, leading to a ReferenceError if accessed before initialization
+
