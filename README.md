@@ -3,4 +3,4 @@ JavaScript OutPut questions mastery
 
 ## Topics Include
 
-* Var, Let, Const, Scope
+* var, let, const & Scope
