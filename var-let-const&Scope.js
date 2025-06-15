@@ -115,3 +115,42 @@ function demo() {
 demo();
 //// Output: undefined
 //* Variables declared with var inside a function are hoisted to the top of the function scope, leading to undefined output before the assignment
+
+//! 16. Hoisting of let inside function
+function demo() {
+	console.log(b);
+	let b = 5;
+}
+demo();
+//// ReferenceError: Cannot access 'b' before initialization
+//* Variables declared with let inside a function are not hoisted, leading to a ReferenceError if accessed before initialization
+
+//! 17. Const Declaration Without Initialization
+const a;
+console.log(a);
+//// SyntaxError: Missing initializer in const declaration
+//* Variables declared with const must be initialized at the time of declaration, leading to a SyntaxError if not
+
+//! 18. Variable Masking with var
+var x = 1;
+function foo() {
+    var x = 2;
+    console.log(x);
+}
+foo();
+console.log(x);
+//// Output: 2
+//// Output: 1
+//* Variables declared with var can be masked by inner scopes, leading to different values being logged depending on the scope
+
+//! 19. Variable Masking with let
+let y = 1;
+function bar() {
+    let y = 2;
+    console.log(y);
+}
+bar();
+console.log(y);
+//// Output: 2
+//// Output: 1
+//* Variables declared with let can also be masked by inner scopes, leading to different values being logged depending on the scope
