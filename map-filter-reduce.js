@@ -159,3 +159,74 @@ console.log(result);
 //* 🔁 22. filter() with index
 const result = [10, 20, 30, 40].filter((val, i) => i % 2 === 0);
 console.log(result);
+//// Output: [10, 30]
+//! The filter method can also take the index of the current element as a second argument, allowing you to filter based on the position of the element in the array.
+
+//* 🔁 23. Reduce with boolean values
+const arr = [true, true, false];
+const result = arr.reduce((acc, val) => acc && val);
+console.log(result);
+//// Output: false
+//! Reduce can be used with boolean values to determine if all elements in the array are true, returning true only if all elements pass the condition.
+
+//* 🔁 24. Filter returns same length?
+const arr = [1, 2, 3];
+const res = arr.filter((n) => {
+	n > 1;
+});
+console.log(res.length);
+//// Output: 3
+//! Filter does not guarantee that the resulting array will have the same length as the original array; it only includes elements that pass the test, which may result in a shorter array.
+
+//* 🔁 25. Reduce Right vs Reduce
+const arr = ['a', 'b', 'c'];
+const left = arr.reduce((acc, cur) => acc + cur);
+const right = arr.reduceRight((acc, cur) => acc + cur);
+console.log(left, right);
+//// Output: 'abc' 'cba'
+//! ReduceRight processes the array from right to left, while reduce processes it from left to right, affecting the order of accumulation in the result.
+
+//* 🔁 26. Reduce initial value impact
+const arr = [1, 2];
+const sum = arr.reduce((acc, val) => acc + val, 10);
+console.log(sum);
+//// Output: 13
+//! The initial value provided to reduce affects the final result, as it serves as the starting point for the accumulation.
+
+//* 🔁 27. Filter on undefined values
+const arr = [undefined, null, 0, 1];
+const res = arr.filter((x) => x);
+console.log(res);
+//// Output: [1]
+//! Filter will remove all falsy values, including `undefined`, `null`, and `0`, leaving only truthy values in the resulting array.
+
+//* 🔁 28. map() with empty slots
+const arr = [1, , 3];
+const res = arr.map((x) => x * 2);
+console.log(res);
+//// Output: [2, <1 empty item>, 6]
+//! When mapping over an array with empty slots, the resulting array will also have empty slots where the original array had them, preserving the structure of the array.
+
+//* 🔁 29. Sparse array with filter
+const arr = [1, , 3];
+const res = arr.filter((x) => true);
+console.log(res);
+//// Output: [1, 3]
+//! Filter will ignore empty slots in a sparse array, resulting in an array that only contains the defined elements.
+
+//* 🔁 30. Mapping with mutation
+const arr = [1, 2, 3];
+arr.map((val, i, a) => (a[i] = val * 10));
+console.log(arr);
+`//// Output: [10, 20, 30]
+//! Mapping can mutate the original array if you modify the elements directly within the map function, but this is generally not recommended as it can lead to confusion and unexpected behavior.`;
+
+//* 🔁 31. Reduce as counter
+const letters = ['a', 'b', 'a'];
+const count = letters.reduce((acc, char) => {
+	acc[char] = (acc[char] || 0) + 1;
+	return acc;
+}, {});
+console.log(count);
+//// Output: { a: 2, b: 1 }
+//! Reduce can be used to count occurrences of elements in an array, creating an object where keys are the elements and values are their counts.
