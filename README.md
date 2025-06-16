@@ -50,7 +50,7 @@ Explanation: This snippet introduces a custom implementation of the reduce() met
 Question 7: map vs foreach
 Explanation: This section compares the usage of map(), forEach(), and traditional for() loops for processing data in an array of student records. It demonstrates how each method can be used to achieve specific tasks, such as transforming data, filtering based on conditions, and aggregating information, highlighting the differences in syntax and approach between these array iteration methods.
 
-/--------------------------------------------------------------------------------------------------------------------------------/
+/-------------------------------------------------------------------------------------------------------------------------------/
 
 -   Functions
 
